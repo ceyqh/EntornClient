@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tasques.html</title>
+</head>
+<body>
+    <input type="text" id="inputTasca"> <button id="publicar">Afegir tasca</button>
+    <ul id="llistaTasques"></ul>
+
+    <script>
+        let inputTasca = document.getElementById("inputTasca");
+        let llistaTasques = document.getElementById("llistaTasques");
+        let publicar = document.getElementById("publicar");
+
+        publicar.addEventListener("click", ()=>{
+            let comentari = document.createElement("li");
+            comentari.innerHTML = inputTasca.value;
+
+            llistaTasques.appendChild(comentari);
+            inputTasca.value = "";
+            inputTasca.focus();
+        });
+    </script>
+</body>
+</html>

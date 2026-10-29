@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>llista.html</title>
+</head>
+<body>
+    <input type="text" id="input"><button id="afegir">Afegir</button><br>
+    <p>Llista de la compra:</p>
+    <div id="llista"></div>
+
+    <script>
+        let input = document.getElementById("input");        
+        let llista = document.getElementById("llista");
+        let afegir = document.getElementById("afegir");
+
+        afegir.addEventListener("click", ()=>{
+
+            const p = document.createElement("p");
+            p.innerHTML = "- " + input.value;
+
+            llista.appendChild(p)
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comentaris.html</title>
+</head>
+<body>
+    <input type="text" id="inputComentari"> <button id="publicar">Publicar comentari</button>
+    <div id="llistaComentaris"></div>
+
+    <script>
+        let inputComentari = document.getElementById("inputComentari");
+        let llistaComentaris = document.getElementById("llistaComentaris");
+        let publicar = document.getElementById("publicar");
+
+        publicar.addEventListener("click", ()=>{
+            let comentari = document.createElement("p");
+            comentari.innerHTML = "Comentari: " + inputComentari.value;
+
+            llistaComentaris.appendChild(comentari);
+            inputComentari.value = "";
+            inputComentari.focus();
+        });
+    </script>
+</body>
+</html>

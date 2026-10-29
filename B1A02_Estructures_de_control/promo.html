@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promo.html</title>
+</head>
+<body>
+    <p>Preu unitari (€):</p>
+    <input type="number" id="preUnitari"><br>
+
+    <p>Quantitat de llibres adquirits:</p>
+    <input type="number" id="quantitatLlibres"> <button id="calcular">Calcular</button><br><br>
+    <p id="preu">Preu: -</p>
+    <p id="descompte">Descompte: -</p>
+
+    <script>
+        let preUnitari = document.getElementById("preUnitari");
+        let quantitatLlibres = document.getElementById("quantitatLlibres");
+        let calcular = document.getElementById("calcular");
+
+        calcular.addEventListener("click", () => {
+            let preu = document.getElementById("preu");
+            let descompte = document.getElementById("descompte");
+            
+            let preuBase = preUnitari.value * quantitatLlibres.value;
+            
+            if (quantitatLlibres.value > 10){
+                let descompteAplicat = (preUnitari.value * quantitatLlibres.value) * 0.21;
+
+                preu.innerHTML = "Preu: " + (preuBase - descompteAplicat) + "€";
+                descompte.innerHTML = "Descompte: " + descompteAplicat + "€ (21%)";
+            }
+            else {
+                preu.innerHTML = "Preu: " + preuBase + "€";
+                descompte.innerHTML = "Descompte: -";
+            }
+        });
+    </script>
+</body>
+</html>

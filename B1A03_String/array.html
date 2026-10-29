@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array.html</title>
+</head>
+<body>
+    <script>
+        let numeroEntrada = "";
+        // numeroEntrada = "1,2,3,4,5,6,7,8";
+        do {
+            numeroEntrada = prompt("Introdueix un numero");
+
+        } while (!/^[0-9](,[0-9]){2,}$/.test(numeroEntrada));
+
+        let numeros = numeroEntrada.split(",");
+        console.log(numeros);
+
+
+        // Exercici 1
+        console.log("Exercici 1:");
+        let posicions = []
+
+        for (let i = 0; i < numeros.length; i++){
+            if (numeros[i] == "3"){
+                posicions.push(i);
+            }
+        }
+        console.log("Posicions: " + posicions.join(","))
+
+
+        // Exercici 2
+        console.log("Exercici 2:");
+
+        for (let i = 0; i < numeros.length; i++){
+            for (let j = i + 1; j < numeros.length; j++){
+                if (numeros[i] == numeros[j]){
+                    numeros.splice(j, 1);
+                    j--;
+                }
+            }
+        }
+        console.log(numeros);
+
+
+        // Exercici 3
+        console.log("Exercici 3:");
+        numeros = numeros.sort();
+        console.log(numeros);
+        
+
+        // Exercici 4
+        console.log("Exercici 4:");
+
+        if (numeros.length % 2 == 0){
+            numeros.shift();
+            numeros.pop();
+        }
+        else {
+            numeros.unshift("0");
+        }
+        console.log(numeros);
+
+
+        // Exercici 5
+        console.log("Exercici 5:");
+        let array1 = [];    
+        let array2 = [];
+
+        for (let i = 0; i < numeros.length; i++){
+            if (i < (numeros.length / 2)){
+                array1.push(numeros[i]);
+            }
+            else {
+                array2.push(numeros[i]);
+            }
+        }
+
+        console.log(array1);
+        console.log(array2);
+
+        
+        // Exercici 6
+        console.log("Exercici 6:");
+        let arrayEx6 = [];
+
+        if (array1 > array2){
+            console.log(array1);
+
+            for (let i = 0; i < array1.length; i++){
+                for (let j = 0; j < array1.length; j++){
+                    if (array1[i] >= array1[j]){
+                        let comodi = array1[j];
+                        array1[j] = array1[i];
+                        array1[i] = comodi;
+                    }
+                }
+            }
+            console.log(array1);
+            arrayEx6 = array1;
+        }
+        else {
+            console.log(array2);
+
+            for (let i = 0; i < array2.length; i++){
+                for (let j = 0; j < array2.length; j++){
+                    if (array2[i] >= array2[j]){
+                        let comodi = array2[j];
+                        array2[j] = array2[i];
+                        array2[i] = comodi;
+                    }
+                }
+            }
+            console.log(array2);
+            arrayEx6 = array2;
+        }
+
+
+        // Exercici 7
+        console.log("Exercici 7:");
+        let arrayConcatenat = [];
+
+        if (array1 < array2){
+            arrayConcatenat = arrayConcatenat.concat(array1);
+        }
+        else {
+            arrayConcatenat = arrayConcatenat.concat(array2);
+        }
+
+        arrayConcatenat = arrayConcatenat.concat(arrayEx6);
+        console.log(arrayConcatenat);
+
+
+    </script>
+</body>
+</html>

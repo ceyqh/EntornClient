@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>auditoria.html</title>
+</head>
+<body>
+    <script>
+        const registreXat = "  ADMIN : Inici de la sessió ;  spy_007 : Operació DANGER en marxa  ; USER12 : Tot normal per aquí ;  spy_007 : Enviant fitxers secrets  ; BOT : error 404 ";
+        let registres = registreXat.split(";");
+
+        let conteDangerSecret = false;
+        
+        for (let i = 0; i < registres.length; i++){
+            registres[i] = registres[i].split(":");
+
+            registres[i][0] = registres[i][0].toUpperCase();
+
+            for (let j = 0; j < registres[i].length; j++){
+                registres[i][j] = registres[i][j].trim();
+
+                let missatge = ``;
+                if (registres[i][j].toLowerCase().includes("danger") || registres[i][j].toLowerCase().includes("secret")){
+                    let primersCaracters = registres[i][j].slice(0, 4);
+                    
+                    missatge = `[ALERTA DE SEGURETAT] \n\tUsuari: ${registres[i][0]}\n\tCodi d'incidència: ${primersCaracters}\n\tEstat: Conté informació confidencial`;
+                }
+                else {
+                    let longitudMissatge = registres[i][j].length;
+                    missatge = `Log d'auditoria -> Usuari: ${registres[i][0]} | Longitud missatge: ${longitudMissatge} caràcters`;
+                }
+
+                console.log(missatge)
+            }
+        }
+
+        console.log(conteDangerSecret);        
+        console.log(registres);
+
+    </script>
+</body>
+</html>

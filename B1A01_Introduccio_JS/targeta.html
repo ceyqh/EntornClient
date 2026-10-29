@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tarjeta.html</title>
+
+    <style>
+        *{
+            margin: 0px;
+        }
+
+        .contenidor{
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            grid-gap: 20px;
+
+            width: 500px;
+            height: 250px;
+        }
+
+        .contenidor-tarjeta{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .tarjeta{
+            background-color: rgb(238, 57, 57);
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            word-break: break-word;
+        }
+
+        .contenidor-inputs{
+            padding: 1rem;
+        }
+        
+        #nomTarjeta, #textTarjeta{
+            margin: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenidor">
+        <div class="contenidor-tarjeta">
+            <div class="tarjeta">
+                <h2 id="nomTarjeta"></h2>
+                <p id="textTarjeta"></p>
+            </div>
+        </div>
+
+        <div class="contenidor-inputs">
+            <p>Nom: </p><input type="text" id="inputNom">
+            <br><br>
+            <p>Text: </p><textarea id="inputText"></textarea>
+            <br><br>
+            <button id="canviar">Canviar</button>
+        </div>
+    </div>
+
+    <script>
+        let inputNom = document.getElementById("inputNom");
+        let inputText = document.getElementById("inputText");
+        let canviar = document.getElementById("canviar");
+
+        canviar.addEventListener("click", () => {
+            let nomTarjeta = document.getElementById("nomTarjeta");
+            let textTarjeta = document.getElementById("textTarjeta");
+
+            nomTarjeta.innerHTML = inputNom.value;
+            textTarjeta.innerHTML = inputText.value;
+        });
+    </script>
+</body>
+</html>

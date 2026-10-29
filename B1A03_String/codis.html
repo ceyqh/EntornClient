@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codis.html</title>
+</head>
+<body>
+    <p>Codi:</p>
+    <input type="text" id="codiInput"> <button id="validar">Validar</button><br><br>
+    <p id="resultat">Esperant codi...</p>
+
+    <script>
+        let resultat = document.getElementById("resultat");
+        let validar = document.getElementById("validar");
+
+        validar.addEventListener("click", () => {
+            let codiInput = document.getElementById("codiInput").value.split("-");
+            
+            let conteX = false;
+            let numeros;
+
+            for (let i = 0; i < codiInput.length; i++){
+                if (codiInput[i] == "X"){
+                    conteX = true;
+                }
+
+                if (!isNaN([codiInput[i]])){
+                    numeros = codiInput[i];
+                }
+            }
+
+            // console.log(conteX);
+            // console.log(numeros);
+            // console.log(codiInput);
+
+            if (codiInput[0] == "SEC" && conteX && numeros != ""){
+                resultat.innerHTML = "Codi vàlid. ID d'accés: " + numeros;
+            }
+            else {
+                resultat.innerHTML= "Accés denegat: Codi no autoritzat.";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>majuscules.html</title>
+</head>
+<body>
+    <input type="text" id="inputText"> <button id="transformar">Convertir a majúscules</button>
+    <p id="outputText">Esperant text...</p>
+
+    <script>
+        let inputText = document.getElementById("inputText");
+        let outputText = document.getElementById("outputText");
+        let transformar = document.getElementById("transformar");
+
+        transformar.addEventListener("click", ()=>{
+            outputText.innerHTML = "TEXT TRANSFORMART: " + inputText.value.toUpperCase();
+        });
+    </script>
+</body>
+</html>

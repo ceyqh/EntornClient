@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navegacio.html</title>
+
+    <style>
+    </style>
+</head>
+<body>
+    <p>Divident:</p>
+    <input type="number" id="divident"><br>
+
+    <p>Divisor:</p>
+    <input type="number" id="divisor"> <button id="calcular">Calcular</button><br><br>
+    <p id="resultat">Resultat: -</p>
+
+    <script>
+        let divident = document.getElementById("divident");
+        let divisor = document.getElementById("divisor");
+        let calcular = document.getElementById("calcular");
+
+        calcular.addEventListener("click", () => {
+            let resultat = document.getElementById("resultat");
+            
+            if (divisor.value < 0){
+                resultat.innerHTML = "Resultat: " + divident.value / (Math.abs(divisor.value));
+            }
+            else if (divisor.value == 0){
+                resultat.innerHTML = "Resultat: No es pot continuar amb el llançament del coet.";
+            }
+            else {
+                resultat.innerHTML = "Resultat: " + divident.value / divisor.value;
+            }
+        });
+    </script>
+</body>
+</html>

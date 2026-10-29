@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detector.html</title>
+</head>
+<body>
+    <script>
+        let sortir = false;
+        
+        do {
+            let text1 = prompt("Primera comanda:").toLowerCase().trim(); // Portàtil d'alta gamma amb processador de darrera generació
+
+            if (text1.toLowerCase() != "sortir"){
+                let text2 = prompt("Segona comanda:").toLowerCase().trim(); // Processador espatllat
+
+                if (text2.toLowerCase() != "sortir"){
+                    let text3 = prompt("Tercera comanda:").toLowerCase().trim(); // Mini processador de l'any 2010  
+                    
+                    if (text3.toLowerCase() != "sortir"){
+                        let paraulaEntrada = prompt("Quina paraula que vols buscar?").toLowerCase();
+
+                        if (paraulaEntrada.toLowerCase() == "sortir"){
+                            sortir = true;
+                        }
+
+                        else {
+                            let textSeparat1 = text1.split(" ");
+                            let textSeparat2 = text2.split(" ");
+                            let textSeparat3 = text3.split(" ");
+
+                            let posicioText1 = text1.indexOf(paraulaEntrada);
+                            let posicioText2 = text2.indexOf(paraulaEntrada);
+                            let posicioText3 = text3.indexOf(paraulaEntrada);                
+
+                            let textFinal = "";
+
+                            if (posicioText1 > -1){
+                                textFinal += "Text 1: (" + text1.indexOf(paraulaEntrada) + ") " + text1.slice(posicioText1, text1.length) + "\n";
+                            }
+                            else {
+                                textFinal += "Text 1: No s'ha trobat la paraula\n";
+                            }
+
+                            if (posicioText2 > -1){
+                                textFinal += "Text 2: (" + text2.indexOf(paraulaEntrada) + ") " + text2.slice(posicioText2, text2.length) + "\n";
+                            }
+                            else {
+                                textFinal += "Text 2: No s'ha trobat la paraula\n";
+                            }
+
+                            if (posicioText3 > -1){
+                                textFinal += "Text 3: (" + text3.indexOf(paraulaEntrada) + ") " + text3.slice(posicioText3, text3.length) + "\n";
+                            }
+                            else {
+                                textFinal += "Text 3: No s'ha trobat la paraula\n";
+                            }
+
+                            alert(textFinal);
+                        }            
+                    }
+                    else {
+                        sortir = true;
+                    }
+                }
+                else {
+                    sortir = true;
+                }
+            }
+            else {
+                sortir = true;
+            }
+            
+        } while (!sortir);
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>credencial.html</title>
+</head>
+<body>
+    <p>Nom:</p>
+    <input type="text" id="nomInput"><button id="crear">Crear</button>
+    <br><br>
+    
+    <p id="resultat">Esperant nom...</p>
+
+    <script>
+        let resultat = document.getElementById("resultat");
+        let crear = document.getElementById("crear");
+
+        crear.addEventListener("click", () => {
+            let nomInput = document.getElementById("nomInput").value.trim().split(" ");
+            let nomCorreu = nomInput[0][0].toLowerCase() + nomInput[1].toLowerCase();
+            
+            resultat.innerHTML = "Correu: " + nomCorreu + "@empresa.com";
+        });
+    </script>
+</body>
+</html>

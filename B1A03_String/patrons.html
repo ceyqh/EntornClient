@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>patrons.html</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        body {
+            margin: 15px;
+        }
+        textarea{
+            width: 200px;
+            height: 200px;
+        }
+
+        #resultat {
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="textInputArea">El teu text aquí...</textarea><br>
+    <button id="calcular">Calcular</button>
+    <div id="resultat"></div>
+
+    <script>
+        const lletres = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        
+        let calcular = document.getElementById("calcular");
+        let resultat = document.getElementById("resultat");
+
+        let totalLletres = 0;
+        let totalParaules = 0;
+
+        calcular.addEventListener("click", () => {
+            let textInputArea = document.getElementById("textInputArea").value;
+            let lletraMesRepetida = "";
+            let comptadorLletres = 0;
+            
+            // Recórrer les lletres base
+            for (let i = 0; i < lletres.length; i++){
+                let lletraActual = lletres[i];
+                let totalLletra = 0;
+                
+                // Recórrer les lletres del text
+                for (const char of textInputArea){
+                    if (char.toLowerCase() == lletraActual){
+                        totalLletra++;
+                    }
+                }
+
+                // Comprovar la lletra més repetida
+                if (comptadorLletres < totalLletra){
+                    comptadorLletres = totalLletra;
+                    lletraMesRepetida = lletraActual;
+                }
+
+                // Crear els p de cada lletra
+                let p = document.createElement("p");
+                p.innerHTML = lletraActual.toUpperCase() + " = " + totalLletra;
+                resultat.appendChild(p);
+            }
+
+            saltDeLinia();
+
+            // Comptar les paraules
+            let textPerParaules = textInputArea.trim().split(" ");
+            let numerpParaules = 0;
+
+            for (let i = 0; i < textPerParaules.length; i++){
+                if (textPerParaules[i] != ""){
+                    numerpParaules++;
+                }
+            }
+
+            let pTotalParaules = document.createElement("p");
+            pTotalParaules.innerHTML = "Total paraules: " + numerpParaules;
+            resultat.appendChild(pTotalParaules);
+
+            // Comptar les lletres
+            let pTotalLletres = document.createElement("p");
+            pTotalLletres.innerHTML = "Total lletres: " + textInputArea.trim().split(" ").join("").length;
+            resultat.appendChild(pTotalLletres);
+
+            saltDeLinia();
+
+            // Llista de paraules que comencen per la lletra més repetida
+            let pLlistaParaules = document.createElement("p");
+            pLlistaParaules.innerHTML = "Llistat de paraules que comencen per " + lletraMesRepetida.toLocaleUpperCase() + ":";
+            resultat.appendChild(pLlistaParaules);
+            
+            // Recórrer les paraules
+            for (let i = 0; i < textPerParaules.length; i++){
+                if (textPerParaules[i] != "" && textPerParaules[i][0].toLowerCase() == lletraMesRepetida.toLowerCase()){
+                    let pParaula = document.createElement("p");
+
+                    pParaula.innerHTML = textPerParaules[i].toUpperCase();
+                    resultat.appendChild(pParaula);
+                }
+            }
+        });
+
+        function saltDeLinia(){
+            let br = document.createElement("br");
+            resultat.appendChild(br);
+        }
+
+    </script>
+</body>
+</html>

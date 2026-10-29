@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUB Pràctiques JS</title>
+    <link rel="icon" href="imgs/js.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        main {
+            /* background-color: cornflowerblue; */
+            width: 70%;
+            display: inline-block;
+            gap: 1rem;
+        }
+
+        header {
+            /* height: 100px; */
+            /* background-color: yellow; */
+            padding: 10px;
+            /* display: flex;
+            align-items: center; */
+        }
+
+        section {
+            margin-top: 2rem;
+            /* background-color: red; */
+            border: 1px solid black;
+            border-radius: 20px;
+            padding: 1rem;
+        }
+
+        .titol-seccio {
+            margin-bottom: 10px;
+            border-bottom: 1px solid grey;
+            padding: 10px;
+        }
+
+        .boto {
+            display: flex;
+            padding: 10px 40px;
+            background: transparent;
+            color: #000000;
+            text-decoration: none;
+            border: 1px solid black;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* .boto:hover {
+            background: yellow;
+        } */
+
+        .boto:active {
+            transform: scale(0.97);
+        }
+
+        h2 {
+            margin-bottom: 5px;
+            /* background-color: yellow; */
+        }
+
+        .contenidor-botons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>🖥️ HUB de Pràctiques JavaScript</h1><br>
+            <p>> Desenvolupament web en entorn client.</p>
+            <p>> Cesc Candalija Blesas.</p>
+        </header>
+
+        <section>
+            <div class="titol-seccio">
+                <h2>B1A01_Introduccio_JS</h2>
+            </div>
+            <div class="contenidor-botons">
+                <a href="B1A01_Introduccio_JS/b1a01.html" class="boto">b1a01.html</a>
+                <a href="B1A01_Introduccio_JS/boto.html" class="boto">boto.html</a>
+                <a href="B1A01_Introduccio_JS/hello.html" class="boto">hello.html</a>
+                <a href="B1A01_Introduccio_JS/input.html" class="boto">input.html</a>
+                <a href="B1A01_Introduccio_JS/llista.html" class="boto">llista.html</a>
+                <a href="B1A01_Introduccio_JS/majuscules.html" class="boto">majuscules.html</a>
+                <a href="B1A01_Introduccio_JS/targeta.html" class="boto">targeta.html</a>
+                <a href="B1A01_Introduccio_JS/tasques.html" class="boto">tasques.html</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="titol-seccio">
+                <h2>B1A02_Estructures_de_control</h2>
+            </div>
+            <div class="contenidor-botons">
+                <a href="B1A02_Estructures_de_control/crono.html" class="boto">crono.html</a>
+                <a href="B1A02_Estructures_de_control/crono.js" class="boto">crono.js</a>
+                <a href="B1A02_Estructures_de_control/navegacio.html" class="boto">navegacio.html</a>
+                <a href="B1A02_Estructures_de_control/promo.html" class="boto">promo.html</a>
+                <a href="B1A02_Estructures_de_control/telemetria.html" class="boto">telemetria.html</a>
+                <a href="B1A02_Estructures_de_control/telemetria.js" class="boto">telemetria.js</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="titol-seccio">
+                <h2>B1A03_String</h2>
+            </div>
+            <div class="contenidor-botons">
+                <a href="B1A03_String/array.html" class="boto">array.html</a>
+                <a href="B1A03_String/auditoria.html" class="boto">auditoria.html</a>
+                <a href="B1A03_String/codis.html" class="boto">codis.html</a>
+                <a href="B1A03_String/credencial.html" class="boto">credencial.html</a>
+                <a href="B1A03_String/format.html" class="boto">format.html</a>
+                <a href="B1A03_String/patrons.html" class="boto">patrons.html</a>
+                <a href="B1A03_String/validacio.html" class="boto">validacio.html</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let exercicis = document.body.querySelectorAll("a");
+
+        for (let i = 0; i < exercicis.length; i++) {
+            let nomExercici = exercicis[i].innerHTML.split(".");
+
+            if (nomExercici[nomExercici.length - 1] == "html") {
+                console.log(exercicis[i]);
+
+                let img = document.createElement("img");
+                img.src = "./imgs/html.png";
+                img.style.height = "20px";
+                img.style.marginRight = "5px"
+                exercicis[i].prepend(img);
+
+                exercicis[i].addEventListener("mouseenter", function () {
+                    this.style.backgroundColor = "#ffa263";
+                });
+
+                exercicis[i].addEventListener("mouseleave", function () {
+                    this.style.backgroundColor = "transparent";
+                });
+            }
+
+            if (nomExercici[nomExercici.length - 1] == "js") {
+                console.log(exercicis[i]);
+
+                let img = document.createElement("img");
+                img.src = "./imgs/js.png";
+                img.style.height = "20px";
+                img.style.marginRight = "10px"
+                exercicis[i].prepend(img);
+
+                exercicis[i].addEventListener("mouseenter", function () {
+                    this.style.backgroundColor = "#fffa63";
+                });
+
+                exercicis[i].addEventListener("mouseleave", function () {
+                    this.style.backgroundColor = "transparent";
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

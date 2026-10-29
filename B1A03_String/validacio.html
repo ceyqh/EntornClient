@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validacio.html</title>
+</head>
+<body>
+    <script>
+        let nom = prompt("Introdueix el teu nom:");
+        nom = nom.trim().split(" ");
+
+        let nomNetSeparat = [];
+
+        for (let i = 0; i < nom.length; i++){
+            if (nom[i] != ""){
+                nomNetSeparat.push(nom[i].toUpperCase());                
+            }            
+        }
+
+        let nomNetJunt = nomNetSeparat.join(" ")
+        
+        let p = document.createElement("p");
+        p.innerHTML = "Hola, " + nomNetJunt + "! El teu nom té " + nomNetJunt.length + " caràcters."
+        document.body.appendChild(p);
+    </script>
+</body>
+</html>
